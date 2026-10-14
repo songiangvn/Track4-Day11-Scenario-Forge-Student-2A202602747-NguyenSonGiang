@@ -1,0 +1,47 @@
+{
+ "format": "avsim-studio/1",
+ "params": {
+  "cutT0": 11.834893099780505,
+  "cutDur": 3.8539075755448913,
+  "cutV": 15.98706193256754,
+  "cutDs": 2.1781983826567384,
+  "pedT0": 14.303886160433581,
+  "pedV": 1.2602606129118514,
+  "busGo": 14.459701093100797,
+  "tgT": 1.027960322137873,
+  "cutGap": 8.23238521582015,
+  "pedGap": 4.514392752242423,
+  "mu": 0.8,
+  "pedLook": 1,
+  "cutBrake": 0.0,
+  "civil": true
+ },
+ "policy": {},
+ "hazards": [
+  {
+   "x": 95.0,
+   "side": "S",
+   "v": 1.6,
+   "t0": 0.0,
+   "trig": 34.0,
+   "type": "ped"
+  }
+ ],
+ "ego": "planner",
+ "space": {
+  "h0_x": [
+   92,
+   112
+  ],
+  "h0_v": [
+   1.0,
+   2.2
+  ],
+  "h0_trig": [
+   10,
+   40
+  ]
+ },
+ "exposure": 0.02,
+ "why": "Người xuống xe buýt rồi băng tắt qua đường ngay sau đuôi xe buýt đang đỗ, thay vì đi thêm tới vạch qua đường (x = 122 m). h0_x [92, 112] m: xe buýt đỗ chiếm x ≈ 100–112 m (dài 12 m, avsim/core.py: BUS, s = 326 trên làn E2), nên người bước ra trong vùng bị xe buýt che hoặc sát đuôi nó; không quá 112 để khác hẳn kiểu crosswalk_block ở vạch. h0_v [1.0, 2.2] m/s: tốc độ đi bộ đo ngoài hiện trường khoảng 1,0 m/s (người già, phân vị 15) tới ~1,5 m/s (người trẻ, trung bình) theo Knoblauch, Pietrucha & Nitzburg 1996 (TRR 1538); 2,2 m/s là đi vội/chạy chậm để kịp xe, vẫn dưới ngưỡng 'chạy' 2,5 m/s của is_feasible. h0_trig [10, 40] m: người bước ra khi xe ta còn cách 10–40 m, tức khoảng 1–4 s ở 8–12 m/s, ngắn hơn khe chấp nhận trung vị 4,5 s của người đi bộ trong thị trấn (avsim/space.py: pedGap) vì chính xe buýt cũng che tầm nhìn của người đó. exposure 0,02/chuyến: mỗi chuyến trong thị trấn đi qua đúng một bến có xe buýt đỗ; 'băng tắt sau xe buýt / dart-out giữa khối nhà' là một trong các kiểu tai nạn người đi bộ phổ biến nhất trong phân loại của Snyder & Knoblauch 1971 và Hunter, Stutts, Pein & Cox 1996 (FHWA-RD-95-163). Con số 1 lần trong 50 lần đi qua bến là GIẢ ĐỊNH bậc độ lớn của tôi (không có số đo trực tiếp); cần đếm thực địa tại bến xe buýt để thay nó, và kết quả per_trip tỉ lệ thuận với nó."
+}
